@@ -8,7 +8,9 @@ package entities;
 
 import java.io.Serializable;
 import java.util.List;
+import static javax.persistence.CascadeType.ALL;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -30,12 +32,11 @@ public class Item_attribute implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
     private String unit_of_measure;
 
-    @OneToMany( mappedBy = "item_attribute")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "item_attribute")
     private List<Item_attribute_value> valores;
     
 

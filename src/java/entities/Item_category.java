@@ -7,7 +7,9 @@ package entities;
 
 import java.io.Serializable;
 import java.util.Set;
+import static javax.persistence.CascadeType.ALL;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,10 +28,9 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Item_category implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private String code;
 
-    @OneToMany(mappedBy = "item_category")
+    @OneToMany(fetch = FetchType.EAGER,mappedBy = "item_category")
     private Set<Item> items ;
 
     private String description;

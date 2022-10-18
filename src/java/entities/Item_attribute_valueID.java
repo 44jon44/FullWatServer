@@ -21,6 +21,10 @@ public class Item_attribute_valueID implements Serializable {
     private String no;
     private Integer id;
 
+    
+    
+    
+    
     public Item_attribute_valueID() {
     }
 
